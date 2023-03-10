@@ -53,3 +53,15 @@ while True:
                 elif lista == 3: 
                     if agregarSeparadorComa == 1: 
                         listaComedera = listaComedera + ", " + str(cantidad) + " Mantequilla(s) (¢ 510)"
+                        costoTotal = costoTotal + (cantidad * 510) 
+                    print("Usted ha seleccionado " + str(cantidad) + " Mantequilla(s)") 
+                elif lista == 4:
+                    print('----------',fecha,'----------\nCliente: ', nombre)
+                    print("/*-----------------------------------------*/") 
+                    print("Esta es su lista de compras: " + listaComedera)
+                    print("El total a pagar es: " ,+ costoTotal)
+                    print("/*-----------------------------------------*/") 
+                else: 
+                    print("Opción inválida") 
+        else: 
+            print("Limpiando lista de compras. Saliendo...")
