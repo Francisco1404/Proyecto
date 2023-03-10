@@ -2,7 +2,7 @@ print("Bienvenido al supermercado 'Los Pollitos'")
 nombre=(input('Ingrese su nombre y apellido \n-'))
 fecha=(input('Ingrese la fecha (00/00/0000)\n-'))
 if nombre=='':
-    print("Menú de inicio") 
+    print("Menú de inicio")
 
 listaComedera = ""
 costoTotal = 0
