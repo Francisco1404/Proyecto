@@ -42,7 +42,7 @@ while True:
                     costoTotal = costoTotal + (cantidad * 1200)
                     print("Usted ha seleccionado " + str(cantidad) + " Caja(s) de Leche")
     
-                   elif lista == 2: 
+                elif lista == 2: 
                     if agregarSeparadorComa == 1: 
                         listaComedera = listaComedera + ", " + str(cantidad) + " Pan(es) (¢ 1000)" 
                     else: 
