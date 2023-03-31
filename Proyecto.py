@@ -76,6 +76,25 @@ while True:
                         costoTotal = costoTotal + (cantidad * 510)
                     print("Usted ha seleccionado " + str(cantidad) + " Mantequilla(s)")
                 elif lista == 4:
+                    
+                    # Aquí se aplica el descuento al total de la compra y se muestra la factura con el monto neto total 
+                montototal = costoTotal
+                numitems = lista - 1  #se resta 1 porque lista tiene el valor de "Terminar lista" (4) que no es un producto comprado
+    
+                    # Calcular el impuesto del 13% sobre el monto total bruto
+                impuesto = montototal * 0.13
+    
+                    # Calcular el descuento en función del número total de productos comprados
+                if numitems <= 5:
+                        descuento = montototal * 0.02
+                elif numitems <= 10:
+                        descuento = montototal * 0.05
+                else:
+                        descuento = montototal * 0.07
+    
+                # Calcular el monto total neto de la compra después del impuesto y el descuento
+                montoneto = montototal + impuesto - descuento
+                    
                     print('----------',fecha,'----------\nCliente: ', nombre)
                     print("/*-----------------------------------------*/")
                     print("Esta es su lista de compras: " + listaComedera)
