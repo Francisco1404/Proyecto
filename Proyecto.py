@@ -192,10 +192,14 @@ while True:
                 montoneto = montototal + impuesto - descuento
                     
                     print('----------',fecha,'----------\nCliente: ', nombre)
-                    print("/*-----------------------------------------*/")
-                    print("Esta es su lista de compras: " + listaComedera)
-                    print("El total a pagar es: " ,+ costoTotal)
-                    print("/*-----------------------------------------*/")
+                print("El total a pagar es: ¢" ,+ montoneto)
+                print("/*-----------------------------------------*/")
+                print("Impuesto (13%): ¢", impuesto)
+                print("Descuento: ¢", descuento)
+                print("Monto Total Bruto: ¢", montototal)
+                print("Esta es su lista de compras: " + str(listaComedera))
+                print("/*-----------------------------------------*/")
+    
             else:
                 print("Limpiando lista de compras. Saliendo...")
     
