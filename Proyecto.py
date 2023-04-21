@@ -98,3 +98,63 @@ def inicio():
                         #agregar el articulo seleccionado y su cantidad a la lista de compras
                         listaComedera.append([articulos[lista-1][0], cantidad, articulos[lista-1][1]])
                         costoTotal += cantidad * articulos[lista-1][1]
+            elif respuesta == 2:
+                print("/*-----------------------------------------*/")
+                print('----------',fecha,'----------\nCliente: ', nombre, apellido)
+                print("Lista de compras:")
+                for item in listaComedera:
+                    print(item[0] + " x" + str(item[1]) + ": ¢" + str(item[2]*item[1]))            
+                print("Total Bruto: ¢" + str(costoTotal))
+
+                reiniciar = False
+                montototal = costoTotal
+                numitems = lista - 1
+                #se resta 1 porque lista tiene el valor de "Terminar lista" (4) que no es un producto comprado
+                # Abrir un archivo de texto para escribir la lista de compras
+                nombre_archivo = nombre.replace(" ", "_") + "_" + fecha.replace("/", "-") + ".txt"
+                with open(nombre_archivo, "w") as archivo:
+                        # Escribir el encabezado con el nombre y la fecha
+                    archivo.write("Lista de compras\n")
+                    archivo.write("Cliente: " + nombre + "\n")
+                    archivo.write("Fecha: " + fecha + "\n\n")
+                        # Escribir cada artículo comprado con su cantidad y precio
+                    for item in listaComedera:
+                        archivo.write(item[0] + " x" + str(item[1]) + ": ¢" + str(item[2]*item[1]) + "\n")
+                    archivo.write("\nTotal a pagar: ¢" + str(costoTotal))
+                    # Calcular el impuesto del 13% sobre el monto total bruto
+                impuesto = montototal * 0.13
+
+                    # Calcular el descuento en función del número total de productos comprados
+                if numitems <= 5:
+                        descuento = montototal * 0.02
+                elif numitems <= 10:
+                        descuento = montototal * 0.05
+                else:
+                        descuento = montototal * 0.07
+
+                # Calcular el monto total neto de la compra después del impuesto y el descuento
+                montoneto = montototal + impuesto - descuento
+
+
+                print("Descuento: ¢", descuento)
+                print("Impuesto (13%): ¢", impuesto)
+                print("Total de la compra: ¢" ,+ montoneto)
+                print("¡Muchas gracias por su compra, lo esperamos pronto!")
+                print("/*-----------------------------------------*/")
+            else:
+                print("Limpiando lista de compras. Saliendo...")
+
+    if respuesta == 2 and cantidad >= 0:
+        
+        reinicio()
+    #REINICIAR TODO EL SISTEMA
+
+def reinicio():
+    reiniciar = False
+    if lista == 16:
+        factura()
+    #SE DEBE LIMPIAR LA LISTA DE ARTICULOS
+        lista = 0
+        listaComedera = ""
+
+inicio()
