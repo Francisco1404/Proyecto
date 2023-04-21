@@ -41,3 +41,60 @@ def inicio():
                     print('Ingrese valores numéricos para día, mes y año.')
 
             fecha = str(dia) + "/" + str(mes) + "/" + str(año)
+            
+            if nombre=='':
+            print("Menú de inicio")
+            continue
+        
+        listaComedera = []
+        costoTotal = 0
+        
+        reiniciar = True
+        
+        # Arreglo de nombres y precios de los articulos
+        articulos = [["Caja de leche", 1200],
+                     ["Pan", 1000],
+                     ["Mantequilla", 510],
+                     ["Arroz 4kg", 3700],
+                     ["Frijoles 1kg", 1800],
+                     ["Atún", 610],
+                     ["Cartón de huevos", 3800],
+                     ["Café", 4100],
+                     ["Fideos", 640],
+                     ["Salsa de tomate", 1700],
+                     ["Mayonesa", 890],
+                     ["Sazonador", 450],
+                     ["Harina", 940],
+                     ["Masa", 870],
+                     ["Papaya", 490]]
+        
+        # Dentro de este While empieza el ciclo de compras
+        while reiniciar:
+            print("/*-----------------------------------------*/")
+            print("1. Ingresar nueva compra")
+            print("2. Salir")
+            print("/*-----------------------------------------*/")
+            respuesta = int(input())
+            if respuesta == 1:
+                lista = 0
+                
+                while lista != 16:
+                    print("Ingrese el número de artículo que quiere comprar")
+                    # Imprimir los articulos con sus precios
+                    for i in range(len(articulos)):
+                        print(str(i+1) + ". " + articulos[i][0] + " (¢ " + str(articulos[i][1]) + ")")
+                    print("16. Terminar lista")
+                    lista = int(input())
+
+                    if lista > 0 and lista < 16:
+                        valor_valido = False
+                        while not valor_valido:
+                            cantidad = input("Indique la cantidad: ")
+                            if cantidad != "":
+                                cantidad = int(cantidad)
+                                valor_valido = True
+                            else:
+                                print("Por favor, ingrese una cantidad válida.")
+                        #agregar el articulo seleccionado y su cantidad a la lista de compras
+                        listaComedera.append([articulos[lista-1][0], cantidad, articulos[lista-1][1]])
+                        costoTotal += cantidad * articulos[lista-1][1]
