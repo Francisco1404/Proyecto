@@ -16,12 +16,12 @@ def inicio():
                 dia = input('Ingrese el día (1-31): ')
                 mes = input('Ingrese el mes (1-12): ')
                 año = input('Ingrese el año: ')
-                if dia and mes and año:
+                if dia and mes and año:  
                     dia = int(dia)
                     mes = int(mes)
                     año = int(año)
-                    if 1 <= dia <= 31 and 1 <= mes <= 12 and año > 0:
-                        if mes == 2:
+                    if 1 <= dia <= 31 and 1 <= mes <= 12 and año >= 2022: 
+                        if mes == 2:  
                             if dia <= 29:
                                 fecha_valida = True
                             elif dia == 30 or dia == 31:
@@ -36,12 +36,13 @@ def inicio():
                         else:
                             fecha_valida = True
                     else:
-                        print('Ingrese valores válidos para día, mes y año.')
+                        print('Ingrese valores válidos para día, mes y año, asegurándose de que el año sea igual o mayor a 2022.')
                 else:
-                    print('Ingrese valores numéricos para día, mes y año.')
+                    print('Ingrese valores numéricos para día, mes y año.')  
 
-            fecha = str(dia) + "/" + str(mes) + "/" + str(año)
-            
+            fecha = str(dia) + "/" + str(mes) + "/" + str(año)  
+
+
             if nombre=='':
             print("Menú de inicio")
             continue
