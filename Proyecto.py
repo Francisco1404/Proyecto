@@ -96,8 +96,9 @@ def inicio():
                             else:
                                 print("Por favor, ingrese una cantidad válida.")
                         #agregar el articulo seleccionado y su cantidad a la lista de compras
-                        listaComedera.append([articulos[lista-1][0], cantidad, articulos[lista-1][1]])
-                        costoTotal += cantidad * articulos[lista-1][1]
+                    compra = [articulos[lista-1][0], cantidad, articulos[lista-1][1]]
+                    listaComedera += [compra]
+                    costoTotal = costoTotal + (cantidad * articulos[lista-1][1])
             elif respuesta == 2:
                 print("/*-----------------------------------------*/")
                 print('----------',fecha,'----------\nCliente: ', nombre, apellido)
